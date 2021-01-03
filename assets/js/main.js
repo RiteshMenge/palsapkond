@@ -1,33 +1,14 @@
 /**
-* Template Name: Mamba - v2.5.0
-* Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+* Template Name: MyBiz - v2.2.0
+* Template URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 !(function($) {
   "use strict";
 
-  // Toggle .header-scrolled class to #header when page is scrolled
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-    }
-  });
-
-  if ($(window).scrollTop() > 100) {
-    $('#header').addClass('header-scrolled');
-  }
-
-  // Stick the header at top on scroll
-  $("#header").sticky({
-    topSpacing: 0,
-    zIndex: '50'
-  });
-
   // Smooth scroll for the navigation menu and links with .scrollto classes
-  var scrolltoOffset = $('#header').outerHeight() - 2;
+  var scrolltoOffset = $('#header').outerHeight() - 1;
   $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -125,9 +106,28 @@
         main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
       }
       if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first").addClass('active');
+        $(".nav-menu ul:first li:first, .mobile-menu ul:first li:first").addClass('active');
       }
     });
+  });
+
+  // Toggle .header-scrolled class to #header when page is scrolled
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('header-scrolled');
+    } else {
+      $('#header').removeClass('header-scrolled');
+    }
+  });
+
+  if ($(window).scrollTop() > 100) {
+    $('#header').addClass('header-scrolled');
+  }
+
+  // Stick the header at top on scroll
+  $("#header").sticky({
+    topSpacing: 0,
+    zIndex: '50'
   });
 
   // Intro carousel
@@ -160,17 +160,11 @@
     return false;
   });
 
-  // Initiate the venobox plugin
-  $(window).on('load', function() {
-    $('.venobox').venobox();
-  });
-
   // jQuery counterUp
   $('[data-toggle="counter-up"]').counterUp({
     delay: 10,
     time: 1000
   });
-
   // Porfolio isotope and filter
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
@@ -185,7 +179,6 @@
       portfolioIsotope.isotope({
         filter: $(this).data('filter')
       });
-      aos_init();
     });
 
     // Initiate venobox (lightbox feature used in portofilo)
@@ -194,24 +187,20 @@
     });
   });
 
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
+  // Testimonials carousel (uses the Owl Carousel library)
+  $(".testimonials-carousel").owlCarousel({
     autoplay: true,
     dots: true,
     loop: true,
     items: 1
   });
 
-  // Init AOS
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out-back",
-      once: true
-    });
-  }
-  $(window).on('load', function() {
-    aos_init();
+  // Portfolio details carousel
+  $(".portfolio-details-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    items: 1
   });
 
 })(jQuery);

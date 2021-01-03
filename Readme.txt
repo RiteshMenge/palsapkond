@@ -1,6 +1,6 @@
 Thanks for downloading this template!
 
-Template Name: Mamba
-Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+Template Name: MyBiz
+Template URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/
 Author: BootstrapMade.com
 License: https://bootstrapmade.com/license/
